@@ -10,7 +10,8 @@ export class UserService {
   constructor(@InjectRepository(User)
     private userRepository: Repository<User>){}
   create(createUserDto: CreateUserDto) {
-    return this.userRepository.save(createUserDto);
+    let user = this.userRepository.save(createUserDto);
+    return {user, message: "Usuário Cadastrado com Sucesso!!!"}
   }
 
   findAll() {
