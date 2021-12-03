@@ -29,4 +29,10 @@ export class UserService {
   remove(id: number) {
     return this.userRepository.delete(id);
   }
+  async login(email: string, password: string){
+    let user = await this.userRepository.findOne({where:{email:email,password:password}})
+    console.log(user)
+    if(!user){return {message:"Email ou Senha inválido",user:null}}
+    return {user}
+  }
 }
