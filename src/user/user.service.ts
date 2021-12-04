@@ -23,7 +23,10 @@ export class UserService {
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
-    return this.userRepository.update(id,updateUserDto);
+     this.userRepository.update(id,updateUserDto);
+     return{
+      message: "Dados Alterados Com Sucesso!!!"
+     }
   }
 
   remove(id: number) {
